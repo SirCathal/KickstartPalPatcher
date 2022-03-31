@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalPatcher", "PalPatcher.csproj", "{46B23037-5A94-4A58-ABBA-F5C3CA5B7003}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46B23037-5A94-4A58-ABBA-F5C3CA5B7003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B23037-5A94-4A58-ABBA-F5C3CA5B7003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B23037-5A94-4A58-ABBA-F5C3CA5B7003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B23037-5A94-4A58-ABBA-F5C3CA5B7003}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A096B9CB-8695-4447-A059-78818BC918A0}
+	EndGlobalSection
+EndGlobal
