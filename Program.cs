@@ -24,7 +24,7 @@ namespace PalPatcher
                     foreach (var f in Directory.GetFiles(arg))
                     {
                         var info = new FileInfo(f);
-                        if (info.Length <= 1024 * 1024 && info.Length >= 256 * 1024)
+                        if (info.Length == 1024 * 1024 || info.Length == 512 * 1024 || info.Length == 256 * 1024)
                         {
                             files.Add(f);
                         }
@@ -48,10 +48,12 @@ namespace PalPatcher
         private static void PatchKickstart(string name, List<Kickstart> patches)
         {
             var BigEndianKickBytes = LoadKickstart(name);
-            Console.WriteLine($"Trying File: {name}");
+            Console.Write($"Trying File: {name}");
+            var csum = CalcChecksumBigEndian(BigEndianKickBytes);
+            Console.WriteLine($" With Checksum {csum.ToString("X")}");
+
             foreach (var patch in patches)
             {
-                var csum = CalcChecksumBigEndian(BigEndianKickBytes);
                 if (csum == patch.Checksum)
                 {
                     Console.WriteLine($"Found {patch.Name} {patch.Version} with Checksum {patch.Checksum.ToString("X")}");
@@ -160,6 +162,17 @@ namespace PalPatcher
                     BytePatchData = new Dictionary<int, byte>()
                     {
                         {0x0EF93,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.0",
+                    Version ="Rev 47.69",
+                    Checksum = 0x035D98F3,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEF8B,0x6F},
                     },
                     UIntPatchData = null
                 }
