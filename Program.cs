@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace PalPatcher
@@ -12,7 +13,24 @@ namespace PalPatcher
             if (args.Length == 0)
             {
                 Console.WriteLine("Usage: PalPatcher [Kick1.rom] [Kick2.rom] ...");
-                Console.WriteLine("       PalPatcher [KickRomFolder]");
+                Console.WriteLine("That will patch the given Files only");
+                Console.WriteLine("");
+                Console.WriteLine("Usage  PalPatcher [KickRomFolder]");
+                Console.WriteLine("That will patch all supportet Kickstart Files in the given folder");
+                Console.WriteLine("");
+                Console.WriteLine("Important: No original File will be changed!");
+                Console.WriteLine("Any supportet Kickstart will be copied and a '.Pal.Rom' suffix will be added");
+                Console.WriteLine("");
+                Console.WriteLine("Please keep in Mind that the patchet Kickstarts will only work with a 8372A and 8375 Agnus Chips");
+                Console.WriteLine("which are switchable from NTSC to PAL!");
+                Console.WriteLine("");
+                Console.WriteLine("Supported in this Version:");
+                foreach (var patch in GetPatches().OrderBy(n => n.Name))
+                {
+                    Console.WriteLine($"{patch.Name} {patch.Version} original Checksum: ${patch.Checksum.ToString("X")}");
+                }
+                Console.WriteLine("");
+                Console.WriteLine("Spechial Thanks to the A1K.org Users A10001986 and DingensCGN for the Patch Data");
             }
 
             var files = new List<string>();
@@ -47,51 +65,67 @@ namespace PalPatcher
 
         private static void PatchKickstart(string name, List<Kickstart> patches)
         {
-            var BigEndianKickBytes = LoadKickstart(name);
-            Console.Write($"Trying File: {name}");
-            var csum = CalcChecksumBigEndian(BigEndianKickBytes);
-            Console.WriteLine($" With Checksum {csum.ToString("X")}");
-
-            foreach (var patch in patches)
+            try
             {
-                if (csum == patch.Checksum)
+                var BigEndianKickBytes = LoadKickstart(name);
+                Console.Write($"Trying File: {name}");
+                var csum = CalcChecksumBigEndian(BigEndianKickBytes);
+                Console.WriteLine($" With Checksum {csum.ToString("X")}");
+
+                foreach (var patch in patches)
                 {
-                    Console.WriteLine($"Found {patch.Name} {patch.Version} with Checksum {patch.Checksum.ToString("X")}");
-                    Console.WriteLine("Apply Pal Patch");
-                    if (patch.BytePatchData != null)
+                    if (csum == patch.Checksum)
                     {
-                        foreach (var b in patch.BytePatchData)
+                        Console.WriteLine($"Found {patch.Name} {patch.Version} with Checksum {patch.Checksum.ToString("X")}");
+                        Console.WriteLine("Apply Pal Patch");
+                        if (patch.BytePatchData != null)
                         {
-                            BigEndianKickBytes[b.Key] = b.Value;
+                            foreach (var b in patch.BytePatchData)
+                            {
+                                BigEndianKickBytes[b.Key] = b.Value;
+                            }
                         }
-                    }
 
-                    if (patch.UIntPatchData != null)
-                    {
-                        foreach (var b in patch.UIntPatchData)
+                        if (patch.UIntPatchData != null)
                         {
-                            PokeL(BigEndianKickBytes, b.Key, b.Value);
+                            foreach (var b in patch.UIntPatchData)
+                            {
+                                PokeL(BigEndianKickBytes, b.Key, b.Value);
+                            }
                         }
-                    }
 
-                    var newCheckSum = CalcChecksumBigEndian(BigEndianKickBytes);
-                    PokeL(BigEndianKickBytes, BigEndianKickBytes.Length - 24, newCheckSum);
-                    var validateCheckSum = CalcChecksumBigEndian(BigEndianKickBytes, true);
-                    Console.WriteLine($"New Checksum {newCheckSum.ToString("X")}");
+                        var newCheckSum = CalcChecksumBigEndian(BigEndianKickBytes);
+                        PokeL(BigEndianKickBytes, BigEndianKickBytes.Length - 24, newCheckSum);
+                        var validateCheckSum = CalcChecksumBigEndian(BigEndianKickBytes, true);
+                        Console.WriteLine($"New Checksum {newCheckSum.ToString("X")}");
 
-                    if (validateCheckSum == 0xFFFFFFFF)
-                    {
-                        Console.WriteLine("Validation OK, writing Patched Kickstart");
-                        name += ".PAL.rom";
-                        Console.WriteLine(name);
-                        File.WriteAllBytes(name, BigEndianKickBytes);
+                        if (validateCheckSum == 0xFFFFFFFF)
+                        {
+                            Console.WriteLine("Validation OK, try to write Patched Kickstart");
+                            name += ".PAL.rom";
+                            Console.Write(name);
+                            if (File.Exists(name))
+                            {
+                                Console.WriteLine(" Error: The output File already exists");
+                            }
+                            else
+                            {
+                                File.WriteAllBytes(name, BigEndianKickBytes);
+                                Console.WriteLine(" OK.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Validation Failed!");
+                        }
+                        Console.WriteLine();
                     }
-                    else
-                    {
-                        Console.WriteLine("Validation Failed!");
-                    }
-                    Console.WriteLine();
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error:");
+                Console.WriteLine(ex.ToString());
             }
         }
 
@@ -186,6 +220,19 @@ namespace PalPatcher
                         {0xEF0B,0x6F},
                     },
                     UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 1.2",
+                    Version ="Rev 33.192",
+                    Checksum = 0x56F2E2A6,
+                    BytePatchData = null,
+                    UIntPatchData = new Dictionary<Int32, UInt32>()
+                    {
+                        {0xB058, 0x700433FC },
+                        {0xB05C, 0x002000DF },
+                        {0xB060, 0xF1DC4E75 },
+                    }
                 }
             };
             return erg;
