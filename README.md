@@ -28,7 +28,7 @@ Please note that the patched Kickstarts will only work with a 8372A and 8375 Agn
 which are switchable from NTSC to PAL!<br/>
 
 Supported in this version:<br/>
-Kickstart 1.2 Rev 33.192 original checksum: $56F2E2A6<br/<
+Kickstart 1.2 Rev 33.192 original checksum: $56F2E2A6<br/>
 Kickstart 1.3 Rev 34.5 original checksum: $15267DB3<br/>
 Kickstart 3.1 Rev 40.63 original checksum: $9FDEEEF6<br/>
 Kickstart 3.1.4 Rev 46.143 original checksum: $BE662BCF<br/>
