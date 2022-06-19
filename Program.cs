@@ -102,7 +102,15 @@ namespace PalPatcher
                         if (validateCheckSum == 0xFFFFFFFF)
                         {
                             Console.WriteLine("Validation OK, try to write Patched Kickstart");
-                            name += ".PAL.rom";
+                            if (name.ToLower().EndsWith(".rom"))
+                            {
+                                name = name.Replace(".rom",".PAL.rom",true,System.Globalization.CultureInfo.InvariantCulture);
+                            }
+                            else
+                            {
+                                name += ".PAL.rom";
+                            }
+                            
                             Console.Write(name);
                             if (File.Exists(name))
                             {
@@ -233,6 +241,50 @@ namespace PalPatcher
                         {0xB05C, 0x002000DF },
                         {0xB060, 0xF1DC4E75 },
                     }
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 2.04",
+                    Version ="Rev 37.175",
+                    Checksum = 0x000B927C,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0x285C3,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 2.05",
+                    Version ="Rev 37.350",
+                    Checksum = 0xBA5D5FA4,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0x031E0F,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.1 A1200",
+                    Version ="Rev 47.102",
+                    Checksum = 0x7A47FC4D,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEFF7,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.1 A1200",
+                    Version ="Rev 40.68",
+                    Checksum = 0x87BA7A3E,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xB48D,0x6F},
+                    },
+                    UIntPatchData = null
                 }
             };
             return erg;
