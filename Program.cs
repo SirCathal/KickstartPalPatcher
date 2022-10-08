@@ -277,6 +277,17 @@ namespace PalPatcher
                 },
                 new Kickstart()
                 {
+                    Name ="Kickstart 3.2.0 A1200",
+                    Version ="Rev 47.96",
+                    Checksum = 0xE3B7D1D5,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEFF3,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
                     Name ="Kickstart 3.1 A1200",
                     Version ="Rev 40.68",
                     Checksum = 0x87BA7A3E,
