@@ -27,8 +27,8 @@ Any supported Kickstart will be copied and a '.Pal.Rom' suffix will be added.
 Please note that the patched Kickstarts will only work with a 8372A and 8375 Agnus Chips
 which are switchable from NTSC to PAL!<br/>
 
-New in V1.0.0.5:
-Support for Kickstart A500/1000/2000 2.04, 2.05 and A1200 3.1, 3.2.1
+New in V1.0.0.7:
+Support for Kickstart A1200 3.2
 
 Supported in this version:<br/>
 Amiga 500/1000/2000:
@@ -43,6 +43,7 @@ Kickstart 3.2.1 Rev 47.102 original checksum: $4CB8FDD9<br/>
 
 Amiga 1200:
 Kickstart 3.1 Rev 40.68 original checksum: $87BA7A3E<br/>
+Kickstart 3.2 Rev 47.69 original checksum: $E3B7D1D5<br/>
 Kickstart 3.2.1 Rev 47.102 original checksum: $7A47FC4D<br/>
 
 

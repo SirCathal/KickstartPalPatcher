@@ -6,7 +6,7 @@
     <DebugType>none</DebugType>
     <NoWin32Manifest>true</NoWin32Manifest>
     <StartupObject>PalPatcher.Program</StartupObject>
-    <FileVersion>1.0.0.5</FileVersion>
+    <FileVersion>1.0.0.7</FileVersion>
   </PropertyGroup>
 
 </Project>
