@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PalPatcher;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using static System.Buffers.Binary.BinaryPrimitives;
 
 namespace PalPatcher
@@ -23,6 +25,10 @@ namespace PalPatcher
                 Console.WriteLine("");
                 Console.WriteLine("Please keep in Mind that the patchet Kickstarts will only work with a 8372A and 8375 Agnus Chips");
                 Console.WriteLine("which are switchable from NTSC to PAL!");
+                Console.WriteLine("");
+                Console.WriteLine("Attention! The program needs the .ROM executable files.");
+                Console.WriteLine("The .bin 'ByteSwap' versions for eprom burning are not recognized!");
+                Console.WriteLine("If the new ROM file created by the program is to be burned to an Eprom, a ByteSwap must be made before.");
                 Console.WriteLine("");
                 Console.WriteLine("Supported in this Version:");
                 foreach (var patch in GetPatches().OrderBy(n => n.Name))
@@ -104,13 +110,13 @@ namespace PalPatcher
                             Console.WriteLine("Validation OK, try to write Patched Kickstart");
                             if (name.ToLower().EndsWith(".rom"))
                             {
-                                name = name.Replace(".rom",".PAL.rom",true,System.Globalization.CultureInfo.InvariantCulture);
+                                name = name.Replace(".rom", ".PAL.rom", true, System.Globalization.CultureInfo.InvariantCulture);
                             }
                             else
                             {
                                 name += ".PAL.rom";
                             }
-                            
+
                             Console.Write(name);
                             if (File.Exists(name))
                             {
@@ -174,63 +180,6 @@ namespace PalPatcher
             {
                 new Kickstart()
                 {
-                    Name ="Kickstart 1.3",
-                    Version ="Rev 34.5",
-                    Checksum = 0x15267DB3,
-                    BytePatchData = null,
-                    UIntPatchData = new Dictionary<Int32, UInt32>()
-                    {
-                        {0xB00C, 0x700433FC },
-                        {0xB010, 0x002000DF },
-                        {0xB014, 0xF1DC4E75 },
-                    }
-                },
-                new Kickstart()
-                {
-                    Name ="Kickstart 3.1",
-                    Version ="Rev 40.63",
-                    Checksum = 0x9FDEEEF6,
-                    BytePatchData = new Dictionary<int, byte>()
-                    {
-                        {0x0BD79,0x6F},
-                    },
-                    UIntPatchData = null
-                },
-                new Kickstart()
-                {
-                    Name ="Kickstart 3.2.1",
-                    Version ="Rev 47.102",
-                    Checksum = 0x4CB8FDD9,
-                    BytePatchData = new Dictionary<int, byte>()
-                    {
-                        {0x0EF93,0x6F},
-                    },
-                    UIntPatchData = null
-                },
-                new Kickstart()
-                {
-                    Name ="Kickstart 3.2.0",
-                    Version ="Rev 47.69",
-                    Checksum = 0x035D98F3,
-                    BytePatchData = new Dictionary<int, byte>()
-                    {
-                        {0xEF8B,0x6F},
-                    },
-                    UIntPatchData = null
-                },
-                new Kickstart()
-                {
-                    Name ="Kickstart 3.1.4",
-                    Version ="Rev 46.143",
-                    Checksum = 0xBE662BCF,
-                    BytePatchData = new Dictionary<int, byte>()
-                    {
-                        {0xEF0B,0x6F},
-                    },
-                    UIntPatchData = null
-                },
-                new Kickstart()
-                {
                     Name ="Kickstart 1.2",
                     Version ="Rev 33.192",
                     Checksum = 0x56F2E2A6,
@@ -240,6 +189,19 @@ namespace PalPatcher
                         {0xB058, 0x700433FC },
                         {0xB05C, 0x002000DF },
                         {0xB060, 0xF1DC4E75 },
+                    }
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 1.3",
+                    Version ="Rev 34.5",
+                    Checksum = 0x15267DB3,
+                    BytePatchData = null,
+                    UIntPatchData = new Dictionary<Int32, UInt32>()
+                    {
+                        {0xB00C, 0x700433FC },
+                        {0xB010, 0x002000DF },
+                        {0xB014, 0xF1DC4E75 },
                     }
                 },
                 new Kickstart()
@@ -266,12 +228,67 @@ namespace PalPatcher
                 },
                 new Kickstart()
                 {
-                    Name ="Kickstart 3.2.1 A1200",
+                    Name ="Kickstart 3.1",
+                    Version ="Rev 40.63",
+                    Checksum = 0x9FDEEEF6,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0x0BD79,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.1.4",
+                    Version ="Rev 46.143",
+                    Checksum = 0xBE662BCF,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEF0B,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.0",
+                    Version ="Rev 47.69",
+                    Checksum = 0x035D98F3,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEF8B,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.1",
                     Version ="Rev 47.102",
-                    Checksum = 0x7A47FC4D,
+                    Checksum = 0x4CB8FDD9,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0x0EF93,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.2",
+                    Version ="Rev 47.111",
+                    Checksum = 0xB1728E0A,
+                    BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEF83,0x6F},
+                    },
+                    UIntPatchData = null
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.1 A1200",
+                    Version ="Rev 40.68",
+                    Checksum = 0x87BA7A3E,
                      BytePatchData = new Dictionary<int, byte>()
                     {
-                        {0xEFF7,0x6F},
+                        {0xB48D,0x6F},
                     },
                     UIntPatchData = null
                 },
@@ -288,15 +305,26 @@ namespace PalPatcher
                 },
                 new Kickstart()
                 {
-                    Name ="Kickstart 3.1 A1200",
-                    Version ="Rev 40.68",
-                    Checksum = 0x87BA7A3E,
+                    Name ="Kickstart 3.2.1 A1200",
+                    Version ="Rev 47.102",
+                    Checksum = 0x7A47FC4D,
                      BytePatchData = new Dictionary<int, byte>()
                     {
-                        {0xB48D,0x6F},
+                        {0xEFF7,0x6F},
                     },
                     UIntPatchData = null
-                }
+                },
+                new Kickstart()
+                {
+                    Name ="Kickstart 3.2.2 A1200",
+                    Version ="Rev 47.111",
+                    Checksum = 0xDB198F9E,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0xEFE7,0x6F},
+                    },
+                    UIntPatchData = null
+                },
             };
             return erg;
         }

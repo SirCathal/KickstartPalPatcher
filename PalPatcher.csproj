@@ -6,7 +6,29 @@
     <DebugType>none</DebugType>
     <NoWin32Manifest>true</NoWin32Manifest>
     <StartupObject>PalPatcher.Program</StartupObject>
-    <FileVersion>1.0.0.7</FileVersion>
+    <FileVersion>1.0.0.8</FileVersion>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <AssemblyVersion>1.0.0.8</AssemblyVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/SirCathal/KickstartPalPatcher</RepositoryUrl>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+	<PublishTrimmed>true</PublishTrimmed>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <PublishSingleFile>true</PublishSingleFile>
+    <Version>1.0.0.8</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

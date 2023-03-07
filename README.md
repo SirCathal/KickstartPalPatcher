@@ -27,8 +27,12 @@ Any supported Kickstart will be copied and a '.Pal.Rom' suffix will be added.
 Please note that the patched Kickstarts will only work with a 8372A and 8375 Agnus Chips
 which are switchable from NTSC to PAL!<br/>
 
-New in V1.0.0.7:
-Support for Kickstart A1200 3.2
+Attention! The program needs the .ROM executable files. 
+The .bin "ByteSwap" versions for eprom burning are not recognized!
+If the new ROM file created by the program is to be burned to an Eprom, a ByteSwap must be made before.
+
+New in V1.0.0.8.
+Support for Kickstart 3.2.2 (A500, A600, A1000, A2000, CDTV and A1200)
 
 Supported in this version:<br/>
 Amiga 500/1000/2000:
@@ -40,11 +44,12 @@ Kickstart 3.1 Rev 40.63 original checksum: $9FDEEEF6<br/>
 Kickstart 3.1.4 Rev 46.143 original checksum: $BE662BCF<br/>
 Kickstart 3.2.0 Rev 47.69 original checksum: $35D98F3<br/>
 Kickstart 3.2.1 Rev 47.102 original checksum: $4CB8FDD9<br/>
+Kickstart 3.2.2 Rev 47.111 original checksum: $B1728E0A<br/>
 
 Amiga 1200:
 Kickstart 3.1 Rev 40.68 original checksum: $87BA7A3E<br/>
 Kickstart 3.2 Rev 47.69 original checksum: $E3B7D1D5<br/>
 Kickstart 3.2.1 Rev 47.102 original checksum: $7A47FC4D<br/>
-
+Kickstart 3.2.2 Rev 47.111 original checksum: $DB198F9E<br/>
 
 Special thanks to the A1K.org users A10001986 and DingensCGN for the patch data<br/>
