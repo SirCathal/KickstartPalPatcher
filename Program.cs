@@ -324,6 +324,16 @@ namespace PalPatcher
                         {0xEFE7,0x6F},
                     },
                     UIntPatchData = null
+                },new Kickstart()
+                {
+                    Name ="Kickstart 3.2.2 A3000",
+                    Version ="Rev 47.111",
+                    Checksum = 0x70A81C49,
+                     BytePatchData = new Dictionary<int, byte>()
+                    {
+                        {0x2Fc6F,0x6F},
+                    },
+                    UIntPatchData = null
                 },
             };
             return erg;
