@@ -1,0 +1,11 @@
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\KickstartService.dll
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\KickstartService.pdb
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\System.Memory.dll
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\System.Numerics.Vectors.dll
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\code\KickstartPalPatcherGui\KickstartService\bin\Debug\System.Buffers.dll
+C:\code\KickstartPalPatcherGui\KickstartService\obj\Debug\KickstartService.csproj.AssemblyReference.cache
+C:\code\KickstartPalPatcherGui\KickstartService\obj\Debug\KickstartService.csproj.CoreCompileInputs.cache
+C:\code\KickstartPalPatcherGui\KickstartService\obj\Debug\Kickstar.85F93B67.Up2Date
+C:\code\KickstartPalPatcherGui\KickstartService\obj\Debug\KickstartService.dll
+C:\code\KickstartPalPatcherGui\KickstartService\obj\Debug\KickstartService.pdb

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="KickstartPalPatcherGui.csproj" Id="44a8220a-855a-4b2c-aea8-201699f55c15" />
+  <Project Path="KickstartService/KickstartService.csproj" Id="3727cde7-bf59-4d07-9931-41c2e77b1555" />
+</Solution>

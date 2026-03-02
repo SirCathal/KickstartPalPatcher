@@ -1,0 +1,132 @@
+[
+  {
+    "Name": "Kickstart 1.2",
+    "Version": "Rev 33.192",
+    "Checksum": "0x56F2E2A6",
+    "BytePatchData": null,
+    "UIntPatchData": {
+      "0xB058": "0x700433FC",
+      "0xB05C": "0x002000DF",
+      "0xB060": "0xF1DC4E75"
+    }
+  },
+  {
+    "Name": "Kickstart 1.3",
+    "Version": "Rev 34.5",
+    "Checksum": "0x15267DB3",
+    "BytePatchData": null,
+    "UIntPatchData": {
+      "0xB00C": "0x700433FC",
+      "0xB010": "0x002000DF",
+      "0xB014": "0xF1DC4E75"
+    }
+  },
+  {
+    "Name": "Kickstart 2.04",
+    "Version": "Rev 37.175",
+    "Checksum": "0x000B927C",
+    "BytePatchData": {
+      "0x285C3": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 2.05",
+    "Version": "Rev 37.350",
+    "Checksum": "0xBA5D5FA4",
+    "BytePatchData": {
+      "0x031E0F": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.1",
+    "Version": "Rev 40.63",
+    "Checksum": "0x9FDEEEF6",
+    "BytePatchData": {
+      "0x0BD79": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.1.4",
+    "Version": "Rev 46.143",
+    "Checksum": "0xBE662BCF",
+    "BytePatchData": {
+      "0xEF0B": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.0",
+    "Version": "Rev 47.69",
+    "Checksum": "0x035D98F3",
+    "BytePatchData": {
+      "0xEF8B": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.1",
+    "Version": "Rev 47.102",
+    "Checksum": "0x4CB8FDD9",
+    "BytePatchData": {
+      "0x0EF93": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.2",
+    "Version": "Rev 47.111",
+    "Checksum": "0xB1728E0A",
+    "BytePatchData": {
+      "0xEF83": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.1 A1200",
+    "Version": "Rev 40.68",
+    "Checksum": "0x87BA7A3E",
+    "BytePatchData": {
+      "0xB48D": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.0 A1200",
+    "Version": "Rev 47.96",
+    "Checksum": "0xE3B7D1D5",
+    "BytePatchData": {
+      "0xEFF3": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.1 A1200",
+    "Version": "Rev 47.102",
+    "Checksum": "0x7A47FC4D",
+    "BytePatchData": {
+      "0xEFF7": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.2 A1200",
+    "Version": "Rev 47.111",
+    "Checksum": "0xDB198F9E",
+    "BytePatchData": {
+      "0xEFE7": "0x6F"
+    },
+    "UIntPatchData": null
+  },
+  {
+    "Name": "Kickstart 3.2.2 A3000",
+    "Version": "Rev 47.111",
+    "Checksum": "0x70A81C49",
+    "BytePatchData": {
+      "0x2FC6F": "0x6F"
+    },
+    "UIntPatchData": null
+  }
+]
