@@ -10,7 +10,12 @@ Thanks to the patches from A10001986 and DingensCGN I was able to create such a 
 
 Starting with Version 2, this Tool has a GUI now.
 
-### The Patcher supports som older Kickstarts with fixed Versions and Patches.
+## All Newer 3.x Roms are (should be) supported by the Autopatcher.<br/>
+I testet Version 3.2.3 and Some Beta Versions of 3.3. They all worked.
+
+If there are any special ROMs that the autopatcher does not recognize, the patches.json file now included in the project can be customized to enable individual patches.
+
+## The Patcher still supports some older Kickstarts with fixed Versions and Patches. I cold remove all 3.x versions here, but I keep tkem in the patches.json as example for individual patches
 That are: <br/>
 Amiga 500/1000/2000:
 Kickstart 1.2 Rev 33.192 original checksum: $56F2E2A6<br/>
@@ -27,10 +32,6 @@ Kickstart 3.2.2 Rev 47.111 original checksum: $DB198F9E<br/>
 Amiga 3000:
 Kickstart 3.2.2 Rev 47.111 original checksum: $70A81C49<br/>
 
-## All Newer 3.x Roms are (should be) supported by the Autopatcher.<br/>
-I testet Version 3.2.3 and Some Beta Versions of 3.3. They all worked.
-
-If there are any special ROMs that the autopatcher does not recognize, the patches.json file now included in the project can be customized to enable individual patches.
 
 
 
