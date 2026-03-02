@@ -3,3 +3,7 @@ obj\
 /obj
 /bin
 .vs/
+.\bin
+.\obj
+/KickstartService/bin/Release
+/KickstartService/obj/Release
